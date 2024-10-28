@@ -16,28 +16,49 @@
 
 ![Criar_topologia_mininet](./imagens/Criar_topologia_mininet.png)
 
-## Inspecionar Informações de Interfaces
+## Inspeção das interfaces, endereços MAC, IP e portas
 
 2. informações das interfaces de rede, endereços MAC, IP e tabela ARP para ver a correspondência de endereços IP e MAC.
 
 ```sh
     h1 ifconfig
 ```
-```sh
-    h2 ifconfig
-```
-```sh
-    h1 arp -n
-```
-```sh
-    h2 arp -n
-```
 
 ![info_host_1](./imagens/info_host_1.png)
 
+```sh
+    h2 ifconfig
+```
+
 ![info_host_2](./imagens/info_host_2.png)
 
-![tabela_ARP_host_1](./imagens/tabela_ARP_host_1.png)
+```sh
+    nodes
+```
+
+![tabela_ARP_host_1](./imagens/nodes.png)
+
+```sh
+    net
+```
+
+![tabela_ARP_host_1](./imagens/net.png)
+
+```sh
+    dump
+```
+
+![tabela_ARP_host_1](./imagens/dump.png)
+
+```sh
+    h1 arp -n
+```
+
+![tabela_ARP_host_2](./imagens/tabela_ARP_host_1.png)
+
+```sh
+    h2 arp -n
+```
 
 ![tabela_ARP_host_2](./imagens/tabela_ARP_host_2.png)
 
@@ -48,11 +69,26 @@
 ```sh
     h1 ping h2
 ```
+
+![ping_host_1_e_host_2](./imagens/ping_host_1_e_host_2.png)
+
 ```sh
     pingall
 ```
 
-![ping_host_1_e_host_2](./imagens/ping_host_1_e_host_2.png)
-
 ![pingall](./imagens/pingall.png)
+
+## Configuração do servidor e cliente TCP com iperf
+
+```sh
+    h1 iperf -s -p 5555
+```
+
+![pingall](./imagens/h1_iperf.png)
+
+```sh
+    h2 iperf -c h1 -p 5555 -i 1 -t 10 -b 25M
+```
+
+![pingall](./imagens/h2_iperf.png)
 
