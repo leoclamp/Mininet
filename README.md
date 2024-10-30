@@ -81,14 +81,19 @@
 ## Configuração do servidor e cliente TCP com iperf
 
 ```sh
-    h1 iperf -s -p 5555
+    iperf -s -p 5555 -i 1
 ```
 
-![pingall](./imagens/h1_iperf.png)
+![pingall](./imagens/h1_servidor.png)
 
 ```sh
-    h2 iperf -c h1 -p 5555 -i 1 -t 10 -b 25M
+    iperf -c 10.0.0.1 -p 5555 -i 1 -t 10
 ```
 
-![pingall](./imagens/h2_iperf.png)
+![pingall](./imagens/h2_cliente.png)
+
+### Colaboradores
+
+- Leonardo Matias
+- Raissa Beatriz
 
